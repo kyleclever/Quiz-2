@@ -73,12 +73,16 @@ public class UDTuition {
 
 		// calculate monthly payment Note: interest compound monthly
 		double monthlyPayment;
-		monthlyPayment = (total * (fixedAPR / 1200)) / (1 - Math.pow(1 + (fixedAPR / 1200), -(YearsRepay * 12)));
+		// monthlyPayment = (total * (fixedAPR / 1200)) / (1 - Math.pow(1 +
+		// (fixedAPR / 1200), -(YearsRepay * 12)));
+		monthlyPayment = total
+				* (((fixedAPR / 100) / 12) / ((Math.pow(1 + (fixedAPR / 100) / 12, YearsRepay * 12)) - 1));
+
 		System.out.printf("\nIf you start to pay back after graduation in " + YearsRepay + " years, "
 				+ "you must monthly pay $ %.2f", monthlyPayment);
 
-		double totalPayment = monthlyPayment * 12 * YearsRepay;
-		double totalInterestPaid = totalPayment - (FirstYearTuition + SecondYearTuition + ThirdYearTuition + FourthYear);
+		double totalPayment = total + monthlyPayment * 12 * YearsRepay;
+		double totalInterestPaid = totalPayment - loan;
 		double percentage = 100 * totalInterestPaid / totalPayment;
 		System.out.printf("\nTotal of payment: $ %.2f", totalPayment);
 		System.out.printf(" and %.2f", percentage);
