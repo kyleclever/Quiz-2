@@ -29,7 +29,7 @@ public class UDTuition {
 		YearsRepay = reader.nextInt();
 	}
 
-	public static void monthlypayment() {
+	public static double monthlypayment() {
 		// first; second; third; fourth year cost Note: assume UD increase rate
 		// annually
 		double FirstYearTuition = InitialTuition;
@@ -84,10 +84,11 @@ public class UDTuition {
 		double totalPayment = total + monthlyPayment * 12 * YearsRepay;
 		double totalInterestPaid = totalPayment - loan;
 		double percentage = 100 * totalInterestPaid / totalPayment;
-		System.out.printf("\nTotal of payment: $ %.2f", totalPayment);
+		System.out.printf("\nTotal payment: $ %.2f", totalPayment);
 		System.out.printf(" and %.2f", percentage);
-		System.out.println(" percentage is interest");
-
+		System.out.println(" percentage is the interest");
+		
+		return monthlyPayment;
 	}
 
 	public static void main(String[] args) {
