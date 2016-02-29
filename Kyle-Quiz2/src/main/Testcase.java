@@ -6,17 +6,19 @@ import org.junit.Test;
 
 public class Testcase {
 	
-	//UDTuition test = new UDTuition();
-	double InitialTuition = 10000;
-	double percentage_increases = 5;
-	double fixedAPR = 5;
-	int YearsRepay = 10;
 	
 	@Test
 	public void test() {
-		double d=746.37;
-		assertEquals(UDTuition.monthlypayment(), d);
+		UDTuition test = new UDTuition();
+		
+		test.setInitialTuition(10000);
+		test.setPercentage_increases(5);
+		test.setFixedAPR(5);
+		test.setYearsRepay(10);
+		test.monthlypayment();
+		double d=746.376;
+		
+		System.out.println(test.getMonthlyPayment());
+		assertTrue(Math.abs(test.getMonthlyPayment() - d) < .01);
 	}
-	
-
 }

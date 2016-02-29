@@ -7,14 +7,70 @@ public class UDTuition {
 	static Scanner reader = new Scanner(System.in);
 
 	// initial variables
-	static double InitialTuition;
-	static double percentage_increases;
-	static double fixedAPR;
-	static int YearsRepay;
-	static double loan;
-	static double total;
+	private double InitialTuition;
+	private double percentage_increases;
+	private double fixedAPR;
+	private int YearsRepay;
+	private double loan;
+	private double monthlyPayment;
 
-	private static void getInput() {
+	public Scanner getReader() {
+		return reader;
+	}
+
+	public void setReader(Scanner reader) {
+		UDTuition.reader = reader;
+	}
+
+	public double getInitialTuition() {
+		return InitialTuition;
+	}
+
+	public void setInitialTuition(double initialTuition) {
+		InitialTuition = initialTuition;
+	}
+
+	public double getPercentage_increases() {
+		return percentage_increases;
+	}
+
+	public void setPercentage_increases(double percentage_increases) {
+		this.percentage_increases = percentage_increases;
+	}
+
+	public double getFixedAPR() {
+		return fixedAPR;
+	}
+
+	public void setFixedAPR(double fixedAPR) {
+		this.fixedAPR = fixedAPR;
+	}
+
+	public int getYearsRepay() {
+		return YearsRepay;
+	}
+
+	public void setYearsRepay(int yearsRepay) {
+		YearsRepay = yearsRepay;
+	}
+
+	public double getLoan() {
+		return loan;
+	}
+
+	public void setLoan(double loan) {
+		this.loan = loan;
+	}
+
+	public double getMonthlyPayment() {
+		return monthlyPayment;
+	}
+
+	public void setMonthlyPayment(double monthlyPayment) {
+		this.monthlyPayment = monthlyPayment;
+	}
+
+	private void getInput() {
 		// Ask for inputs into variables
 		System.out.println("How much is your initial tuition cost per year? ");
 		InitialTuition = reader.nextDouble();
@@ -29,7 +85,7 @@ public class UDTuition {
 		YearsRepay = reader.nextInt();
 	}
 
-	public static double monthlypayment() {
+	public double monthlypayment() {
 		// first; second; third; fourth year cost Note: assume UD increase rate
 		// annually
 		double FirstYearTuition = InitialTuition;
@@ -72,7 +128,6 @@ public class UDTuition {
 		System.out.printf("\nAfter graducation, you will have debt: $ %.2f", total);
 
 		// calculate monthly payment Note: interest compound monthly
-		double monthlyPayment;
 		// monthlyPayment = (total * (fixedAPR / 1200)) / (1 - Math.pow(1 +
 		// (fixedAPR / 1200), -(YearsRepay * 12)));
 		monthlyPayment = total
@@ -92,9 +147,11 @@ public class UDTuition {
 	}
 
 	public static void main(String[] args) {
+		UDTuition myTuition = new UDTuition();
+		
 		// execute all code
-		getInput();
-		monthlypayment();
+		myTuition.getInput();
+		myTuition.monthlypayment();
 	}
-
 }
+
