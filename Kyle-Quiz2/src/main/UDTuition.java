@@ -127,12 +127,9 @@ public class UDTuition {
 		}
 		System.out.printf("\nAfter graducation, you will have debt: $ %.2f", total);
 
-		// calculate monthly payment Note: interest compound monthly
-		// monthlyPayment = (total * (fixedAPR / 1200)) / (1 - Math.pow(1 +
-		// (fixedAPR / 1200), -(YearsRepay * 12)));
-		monthlyPayment = total
-				* (((fixedAPR / 100) / 12) / ((Math.pow(1 + (fixedAPR / 100) / 12, YearsRepay * 12)) - 1));
-
+		// calculate monthly payment Note: interest compound monthly		
+		monthlyPayment = total * (fixedAPR / 1200) / (1 -1/ Math.pow(1 +(fixedAPR / 1200), YearsRepay * 12));
+		
 		System.out.printf("\nIf you start to pay back after graduation in " + YearsRepay + " years, "
 				+ "you must monthly pay $ %.2f", monthlyPayment);
 

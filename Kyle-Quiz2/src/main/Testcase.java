@@ -16,7 +16,7 @@ public class Testcase {
 		test.setFixedAPR(5);
 		test.setYearsRepay(10);
 		test.monthlypayment();
-		double d=746.376;
+		double d=1229.289;
 		
 		System.out.println(test.getMonthlyPayment());
 		assertTrue(Math.abs(test.getMonthlyPayment() - d) < .01);
